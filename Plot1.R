@@ -6,8 +6,8 @@ data <- read.table("household_power_consumption.txt",
 
 
 # time & date formatting & subsetting the required dates
-data$Time <- strptime(data$Time, format = "%d/%m/%Y %H:%M:%S")
-data$Date <- as.Date(data$Date,format = "%d/%m/%Y")
+data$Datetime <- strptime(paste(data$Date, data$Time, " "), format = "%d/%m/%Y %H:%M:%S")
+data$Date <- as.Date(data$Date, format = "%d/%m/%Y")
 data_subset <- data[data$Date <= "2007-02-02" & data$Date >= "2007-02-01",]
 
 
